@@ -5,6 +5,7 @@
   * [No.1 VGG](qian-yan/test.md)
   * [No.2 Inception net](qian-yan/no.2-inception-net/README.md)
     * [Network In Network](qian-yan/no.2-inception-net/network-in-network.md)
+    * [Going deeper with convolutions](qian-yan/no.2-inception-net/going-deeper-with-convolutions.md)
 * [算法部分](suan-fa-bu-fen/README.md)
   * [Untitled](suan-fa-bu-fen/untitled.md)
 
