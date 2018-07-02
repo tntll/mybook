@@ -27,9 +27,31 @@ description: 谷歌团队对于inception net的改进
 
 但是这种结构在实际操作中，在网络的浅层采用这种方式并没有带来很好的效果。在网络的中层，即feature map大小适中的时候采用这种结构，效果会比较好。这样inception的结构就变成了如下图：
 
-![](../../.gitbook/assets/image%20%286%29.png)
+![](../../.gitbook/assets/image%20%287%29.png)
 
 #### Utility of Auxiliary Classifiers
 
-在之前的inception net中提出了增加额外旁支分类器来提高网络的训练结果。
+在之前的inception net中提出了增加额外旁支分类器来提高网络的训练结果。使用了多余的在底层的分类器，直觉上可以认为这样做可以使底层能够在梯度下降中学的比较充分，但在实践中发现两条：
+
+* 多余的分类器在训练开始的时候并不能起到作用，在训练快结束的时候，使用它可以有所提升
+* 最底层的那个多余的分类器去掉以后也不会有损失。
+* 以为多余的分类器起到的是梯度传播下去的重要作用，但通过实验认为实际上起到的是regularizer的作用，因为在多余的分类器前添加dropout或者batch normalization后效果更佳。（引用[https://blog.csdn.net/stdcoutzyx/article/details/51052847](https://blog.csdn.net/stdcoutzyx/article/details/51052847)）
+
+#### Efficient Grid Size Reduction
+
+为了缩小feature\_map的大小，一般有两种方法。
+
+![](../../.gitbook/assets/image%20%2814%29.png)
+
+左图表示传统的方法是直接采用pooling操作，但正如之前所述，直接采用pooling会导致特征的表征遇到瓶颈。右图所示的方法虽然可以减少特征减少问题，但是带来了很大的额外计算量。 为了同时达到不违反规则且降低计算量的作用，将网络改为下图：
+
+![](../../.gitbook/assets/image%20%289%29.png)
+
+采用两路并行的计算来降低计算量并且避免降低特征表达能力。
+
+最后整个inception模型的V2版本结构如下
+
+![](../../.gitbook/assets/image%20%286%29.png)
+
+
 
