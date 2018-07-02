@@ -7,6 +7,7 @@
     * [Network In Network](qian-yan/no.2-inception-net/network-in-network.md)
     * [Going deeper with convolutions](qian-yan/no.2-inception-net/going-deeper-with-convolutions.md)
     * [Rethinking the Inception Architecture for Computer Vision](qian-yan/no.2-inception-net/rethinking-the-inception-architecture-for-computer-vision.md)
+  * [Deep Residual Learning for Image Recognition](qian-yan/deep-residual-learning-for-image-recognition.md)
 * [算法部分](suan-fa-bu-fen/README.md)
   * [Untitled](suan-fa-bu-fen/untitled.md)
 
