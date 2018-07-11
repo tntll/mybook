@@ -14,13 +14,13 @@ description: 本文是goolenet的第一个版本
 
 这个时候就是之前提到的1\*1卷积来解决这个问题了。改良版的inception如下：
 
-![](../../.gitbook/assets/image%20%2810%29.png)
+![](../../.gitbook/assets/image%20%2811%29.png)
 
 在这一版本中，通过在前一层之后加上1\*1卷积，可以大大减少通道数。这样的话即使concate了很多输入，仍然可以保证较少的参数量。也不会发生网络越深通道越多参数越多的情况。而且就如同NIN中提到的，加入的1\*1卷积部分能够提高模块的非线性表达能力。还有一点，因为在一个inception里包含了多种大小的卷积核，所以每个inception的感受范围就自然地包含了多个尺度。（但是实际上，可以通过VGG论文得到启发，全部采用3\*3大小的卷积核，因为网络会串联多个inception，也可以达到不同感受范围的效果）
 
 之后整个inception net就是将上述提到的inception叠加起来，成为一个完整的深层网络。如下图：
 
-![](../../.gitbook/assets/image%20%2815%29.png)
+![](../../.gitbook/assets/image%20%2817%29.png)
 
 ![](../../.gitbook/assets/image%20%284%29.png)
 

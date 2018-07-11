@@ -27,7 +27,7 @@ description: 谷歌团队对于inception net的改进
 
 但是这种结构在实际操作中，在网络的浅层采用这种方式并没有带来很好的效果。在网络的中层，即feature map大小适中的时候采用这种结构，效果会比较好。这样inception的结构就变成了如下图：
 
-![](../../.gitbook/assets/image%20%289%29.png)
+![](../../.gitbook/assets/image%20%2810%29.png)
 
 #### Utility of Auxiliary Classifiers
 
@@ -41,11 +41,11 @@ description: 谷歌团队对于inception net的改进
 
 为了缩小feature\_map的大小，一般有两种方法。
 
-![](../../.gitbook/assets/image%20%2817%29.png)
+![](../../.gitbook/assets/image%20%2819%29.png)
 
 左图表示传统的方法是直接采用pooling操作，但正如之前所述，直接采用pooling会导致特征的表征遇到瓶颈。右图所示的方法虽然可以减少特征减少问题，但是带来了很大的额外计算量。 为了同时达到不违反规则且降低计算量的作用，将网络改为下图：
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../.gitbook/assets/image%20%2812%29.png)
 
 采用两路并行的计算来降低计算量并且避免降低特征表达能力。
 
@@ -68,7 +68,7 @@ description: 谷歌团队对于inception net的改进
 
 相当于给每一项中加入了一个均匀分布的子项，来缩减单纯的1与0带来的问题。使得目标函数可以相对平滑。
 
-![](../../.gitbook/assets/image%20%2813%29.png)
+![](../../.gitbook/assets/image%20%2815%29.png)
 
 这项改动可以提升0.2%的效果。
 
